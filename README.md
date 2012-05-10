@@ -40,3 +40,22 @@ Create a Heroku app and repo:
 Set the APIkey environment variable on the Heroku app instance:
 
     $ heroku config:add APIkey=your_mongohq_api_key
+
+Push to the heroku repo and spin up the web worker:
+
+	$ git push heroku master
+    $ heroku ps:scale web=1
+
+You should now be able run queries against your MongoHQ database using the REST API.
+
+#### Usage
+
+Whether running locally or on heroku, you pass [MongoHQ API](http://support.mongohq.com/api) queries (you can use the other features like sort, too) like normal except you append the call parameters to your local or Heroku host and DO NOT include the apikey param. 
+
+For example:
+
+##### On Heroku:     
+    http://mongoprox.herokuapp.com/databases/chicago/collections/requests/documents?limit=1
+
+##### Localhost:     
+    http://localhost:3000/databases/chicago/collections/requests/documents?limit=1
