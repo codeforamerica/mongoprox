@@ -79,6 +79,8 @@ http.createServer(function (request, proxyResponse) {
           allBuffers = expandBuffer;
         }
       });
+      if (allBuffers === null)
+        proxyResponse = {}; 
       proxyResponse.end(allBuffers.toString());
     });
   });
