@@ -53,9 +53,17 @@ http.createServer(function (request, proxyResponse) {
     // when call to proxy is complete, return the 
     // as if we were mongohq
     res.on('end', function() {
+      console.log(res.headers);
+  //'access-control-allow-origin': '*',
+  //'access-control-allow-methods': 'GET,HEAD,POST,DELETE,PUT',
+  //'access-control-allow-headers': 'Origin, X-CSRF-Token, Accept, Authorization, MongoHQ-API-Token, Content-Type, User-Agent',
+  allow: 'OPTIONS',
       proxyResponse.writeHead(res.statusCode,
                         {'Content-Type': res.headers['content-type'],
                          'server': res.headers['server'],
+                         'access-control-allow-origin': '*',
+                         'access-control-allow-methods': 'GET,HEAD,POST,DELETE,PUT',
+                         'access-control-allow-headers': 'Origin, X-CSRF-Token, Accept, Authorization, MongoHQ-API-Token, Content-Type, User-Agent',
                          'date': res.headers['date'],
                          'connection': res.headers['connection']});
       allBuffers = null;
