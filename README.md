@@ -1,4 +1,4 @@
-pen311 Analytics Proxy Server
+Open311 Analytics Proxy Server
 
 ![Mou icon](http://codeforamerica.org/wp-content/themes/cfawp2012/images/logo.png)
 
