@@ -1,0 +1,15 @@
+{
+  "author": "Code for America",
+  "name": "mongoproxy",
+  "description": "A proxy server for MongoHQ",
+  "version": "0.0.1",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.6"
+  },
+  "dependencies": { "colors" : "*" },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
