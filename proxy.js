@@ -93,7 +93,7 @@ http.createServer(function (request, proxyResponse) {
     console.error(e);
   });
 
-}).listen(3000, "localhost");
+}).listen(port, "localhost");
 
-util.puts('http proxy server'.blue + ' started '.green.bold + 'on port '.blue + '3000'.yellow);
+util.puts('http proxy server'.blue + ' started '.green.bold + 'on port '.blue + port.toString().yellow);
 

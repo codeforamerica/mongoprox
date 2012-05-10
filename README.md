@@ -12,7 +12,7 @@ This proxy server is used to insulate the MongoHQ instance (and private account 
 
 #### Setup and Deployment
 
-The proxy server is easy to run locally and deploy to Heroku. You will need to have node and npm installed on your machine before continuing however.
+The proxy server is easy to run locally and deploy to Heroku. You will need to have node and npm installed on your machine before continuing however. For Heroku, you will need to have a Heroku account - this app can run in the free tier.
 
 ##### Running locally
 
@@ -33,3 +33,10 @@ Run the application like this:
 
 ##### Deploy to Heroku
 
+Create a Heroku app and repo:
+
+	$ heroku create [app-name] --stack cedar
+
+Set the APIkey environment variable on the Heroku app instance:
+
+    $ heroku config:add APIkey=your_mongohq_api_key
