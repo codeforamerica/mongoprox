@@ -15,7 +15,6 @@ util.puts(welcome.rainbow.bold);
 
 var port = process.env.PORT || 3000;
 console.log("started with APIkey: " + process.env.APIkey);
-console.log("running on port: " + port);
 
 //
 // Http Proxy Server
@@ -54,8 +53,6 @@ http.createServer(function (request, proxyResponse) {
     // when call to proxy is complete, return the 
     // as if we were mongohq
     res.on('end', function() {
-      //console.log("statusCode: ", res.statusCode);
-      //console.log("headers: ", res.headers);
       proxyResponse.writeHead(res.statusCode,
                         {'Content-Type': res.headers['content-type'],
                          'server': res.headers['server'],
@@ -68,15 +65,9 @@ http.createServer(function (request, proxyResponse) {
           allBuffers = buffer;
         } else {
           var currentLength = allBuffers.length;
-          console.log("currentLength = " + currentLength);
           var newLength = currentLength + buffer.length;
-          console.log("newLength = " + newLength);
           expandBuffer = new Buffer(newLength);
-          //expandBuffer.copy(allBuffers);
           allBuffers.copy(expandBuffer);
-          console.log("expandBuffer is now " + expandBuffer.length);
-          console.log("currentLength = " + currentLength);
-          //expandBuffer.copy(buffer, 0, currentLength+1, newLength);
           buffer.copy(expandBuffer, currentLength, 0);
           allBuffers = expandBuffer;
         }
