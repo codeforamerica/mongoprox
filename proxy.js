@@ -13,7 +13,9 @@ var welcome = [
 ].join('\n');
 util.puts(welcome.rainbow.bold);
 
+var port = process.env.PORT || 3000;
 console.log("started with APIkey: " + process.env.APIkey);
+console.log("running on port: " + port);
 
 //
 // Http Proxy Server
