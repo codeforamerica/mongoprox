@@ -82,7 +82,7 @@ http.createServer(function (request, proxyResponse) {
         }
       });
       if (allBuffers === null)
-        proxyResponse = {}; 
+        allBuffers = {}; 
       proxyResponse.end(allBuffers.toString());
     });
   });
